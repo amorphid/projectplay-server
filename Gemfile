@@ -9,18 +9,15 @@ gem 'geokit-rails'
 gem 'json'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'pg'
 gem "pry-rails"
 gem 'rails', '4.0.0'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'rake', '10.1.0'
 gem 'spreadsheet'
 
-group :development, :test do
-	gem 'sqlite3'
-end
-
 group :production do
-	gem 'pg'
+
 	gem 'thin'
 end
 
