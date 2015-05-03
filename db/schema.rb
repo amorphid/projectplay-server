@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907174927) do
+ActiveRecord::Schema.define(version: 20150503152853) do
 
   create_table "aliases", force: true do |t|
     t.integer  "playground_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140907174927) do
     t.string   "google_placesid"
     t.text     "imageurl"
     t.string   "address"
+    t.boolean  "is_school"
   end
 
   create_table "rails_admin_histories", force: true do |t|
