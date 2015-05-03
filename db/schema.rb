@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503204243) do
+ActiveRecord::Schema.define(version: 20150503205822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,27 @@ ActiveRecord::Schema.define(version: 20150503204243) do
     t.integer  "pleasant_surrounding_rating"
     t.integer  "fencing_rating"
     t.integer  "disabilities_rating"
+    t.integer  "musical_features_rating"
+    t.integer  "swings_rating"
+    t.integer  "bucket_swings_rating"
+    t.integer  "sprayground_play_fountain_rating"
+    t.integer  "skate_park_rating"
+    t.integer  "streams_rating"
+    t.integer  "slide_ratings"
+    t.integer  "climbing_structures_rating"
+    t.integer  "spinning_structures_rating"
+    t.integer  "rocking_structure"
+    t.integer  "balance_features_rating"
+    t.integer  "sandbox_rating"
+    t.integer  "playhouse_rating"
+    t.integer  "stage_rating"
+    t.integer  "path_for_wheeled_toys_rating"
+    t.integer  "basketball_courts_rating"
+    t.integer  "surface_marked_for_games_rating"
+    t.integer  "open_space_for_ball_play"
+    t.integer  "woods_rating"
+    t.integer  "garden_rating"
+    t.integer  "natural_elements_rating"
   end
 
   create_table "rails_admin_histories", force: true do |t|
