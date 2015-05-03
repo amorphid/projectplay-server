@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503205822) do
+ActiveRecord::Schema.define(version: 20150503211554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20150503205822) do
     t.integer  "woods_rating"
     t.integer  "garden_rating"
     t.integer  "natural_elements_rating"
+    t.text     "other_cool_features"
   end
 
   create_table "rails_admin_histories", force: true do |t|
