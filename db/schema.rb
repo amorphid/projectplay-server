@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503152853) do
+ActiveRecord::Schema.define(version: 20150503203427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150503152853) do
     t.text     "imageurl"
     t.string   "address"
     t.boolean  "is_school"
+    t.integer  "pleasant_surrounding_rating"
   end
 
   create_table "rails_admin_histories", force: true do |t|
