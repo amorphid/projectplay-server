@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503211742) do
+ActiveRecord::Schema.define(version: 20150510213310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,6 @@ ActiveRecord::Schema.define(version: 20150503211742) do
     t.integer "scalevalue"
     t.text    "textvalue"
     t.string  "description"
-  end
-
-  create_table "geometry_columns", id: false, force: true do |t|
-    t.string  "f_table_catalog",   limit: 256, null: false
-    t.string  "f_table_schema",    limit: 256, null: false
-    t.string  "f_table_name",      limit: 256, null: false
-    t.string  "f_geometry_column", limit: 256, null: false
-    t.integer "coord_dimension",               null: false
-    t.integer "srid",                          null: false
-    t.string  "type",              limit: 30,  null: false
   end
 
   create_table "playgrounds", force: true do |t|
@@ -102,6 +92,7 @@ ActiveRecord::Schema.define(version: 20150503211742) do
     t.integer  "natural_elements_rating"
     t.text     "other_cool_features"
     t.text     "disabilities_comments"
+    t.string   "zip_code"
   end
 
   create_table "rails_admin_histories", force: true do |t|
@@ -111,19 +102,11 @@ ActiveRecord::Schema.define(version: 20150503211742) do
     t.string   "table"
     t.integer  "month",      limit: 2
     t.integer  "year",       limit: 8
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
-
-  create_table "spatial_ref_sys", id: false, force: true do |t|
-    t.integer "srid",                   null: false
-    t.string  "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string  "srtext",    limit: 2048
-    t.string  "proj4text", limit: 2048
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -136,8 +119,8 @@ ActiveRecord::Schema.define(version: 20150503211742) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
