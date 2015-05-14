@@ -1,5 +1,5 @@
-var playApp = function() 
-{  
+var playApp = function()
+{
 	var inst = {};
 	var config = {
 		title: "Alexandria Plays",
@@ -30,7 +30,7 @@ var playApp = function()
 		if (config.logo) {
 			$('#header_img').attr('src', config.logo);
 		}
-		
+
 		if (config.title) {
 			document.title = config.title;
 		}
@@ -57,7 +57,7 @@ var playApp = function()
 	};
 
 	var initSidebar = function() {
-		
+
 		$("#showAllBtn").click(
 			function() {
 				showAllPlaygrounds();
@@ -79,7 +79,7 @@ var playApp = function()
 		clearCircle();
 		clearMarkers();
 		clearListView();
-		inst.lastSearchResults = [];	
+		inst.lastSearchResults = [];
 	};
 
 	var showAllPlaygrounds = function() {
@@ -231,7 +231,7 @@ var playApp = function()
 				$('#detail_restrooms').empty();
 				if (result.restrooms == 1) {
 					$('#detail_restrooms').append('None.');
-				} 
+				}
 				else if (result.restrooms == 2) {
 					$('#detail_restrooms').append('Inadequate.');
 				}
@@ -267,6 +267,15 @@ var playApp = function()
 				$('#detail_comments_text').empty();
 				$('#detail_comments_text').append(result.generalcomments);
 
+				var school_blurb = "<p>School: School playgrounds are open after school and on the weekends.  However, school activities, including Extended Day have priority use.  Children are expected to be supervised by an adult while using the playgrounds.</p>";
+
+				if (result.is_school) {
+					$('#school_blurb').html(school_blurb);
+				} else {
+					$('#school_blurb').html("");
+				}
+
+
 				//get google places url
 				// Updated Dec 2013 to remove use of Google Places URI in place
 				// of just having the Google Local URL in our database
@@ -289,7 +298,7 @@ var playApp = function()
 				//			$('#detail_googleplacelink').empty();
 				//			$('#detail_googleplacelink').append("N/A");
 				//		}
-				//		
+				//
 				//	}
 				//);
 			}
@@ -305,7 +314,7 @@ var playApp = function()
 		for (var i = 0; i < inst.markers.length; i++ ) {
 	    	bounds.extend(inst.markers[i].position);
 	    }
-	    
+
 	    inst.map.fitBounds(bounds);
 	};
 
@@ -319,7 +328,7 @@ var playApp = function()
 					    new google.maps.Point(16, 37) //offset
 					);
 			var pt = new google.maps.LatLng(playObj.lat, playObj.long);
-			
+
 			var addMarker = function() {
 				var marker = new google.maps.Marker({
 		            id: playObj.id,
@@ -330,8 +339,8 @@ var playApp = function()
 		        });
 		        //marker.set("id", playObj.id);
 		        inst.markers.push(marker);
-		        
-		        google.maps.event.addListener(marker, 'click', 
+
+		        google.maps.event.addListener(marker, 'click',
 		        		function (e) {
 		        			inst.clickPgMarker(marker.id);
 		        		}
@@ -357,7 +366,7 @@ var playApp = function()
 	};
 
 	var renderListView = function(list) {
-		if (list.length > 0) 
+		if (list.length > 0)
 		{
 			$("#app_listview").show();
 			$("#app_pager").show();
@@ -402,7 +411,7 @@ var playApp = function()
 				}
 			);
 
-		} 
+		}
 	};
 
 	inst.rightSizeListView = function() {
